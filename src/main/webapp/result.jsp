@@ -3,7 +3,46 @@
   pageEncoding="UTF-8"%>
 <%
   //必要な処理を記述してください。
-
+  // セッションで保存
+  	request.setCharacterEncoding("UTF-8");
+  	if(session.getAttribute("num_user") == null) {
+  		session.setAttribute("num_user", 0);
+  	}
+  	User[] users1 = new User[5];
+  	if(session.getAttribute("users") == null) {
+  		session.setAttribute("users", users1);
+  	}
+	String userId = request.getParameter("userId");
+	String userName = request.getParameter("userName");
+	String age = request.getParameter("age");
+	int age_int = 0;
+	if(!age.isEmpty() && !age.equals(null)) {
+		age_int = Integer.parseInt(age);
+	}
+	int num_user = (int) session.getAttribute("num_user");
+	User[] users = (User[]) session.getAttribute("users");
+	num_user++;
+	
+	String result = "";
+	
+// 	User[] users = new User[6];
+// 	User u1 = null;
+	User u1 = new User(userId, userName, age_int);
+	for(int i = 0; i < users.length; i++) {
+		if(users[i] == null) {
+			users[i] = u1;
+			break;
+		}
+	}
+	if (num_user < 5) {
+		// セッションを保存
+		session.setAttribute("num_user", num_user);
+		session.setAttribute("users", users);
+		result = "ユーザーを登録しました";
+	} else {
+		result = "これ以上ユーザーを登録できません";
+	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -54,12 +93,12 @@ a.button {
                 // todo:
                 // 現在は変数のみ定義している。
                 // Userクラスの情報取得用メソッドを呼んだ値をセットするように修正。
-                String msg = "";
+                String msg = tempUser.returnUserInfo();
 
                 // ユーザー情報表示
                 out.println(msg);
                 out.println("<br>");
-            }
+            } 
         }
     %>
   </p>

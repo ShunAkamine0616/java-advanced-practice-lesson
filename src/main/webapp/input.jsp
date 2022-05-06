@@ -2,7 +2,11 @@
   pageEncoding="UTF-8"%>
 <%
     // 必要な処理を記述してください。
-
+	String btn = request.getParameter("btn");
+	if (btn != null && btn.equals("reset")) {
+	    // リセットボタンが押された場合、セッションを破棄
+	    session.invalidate();
+	} 
 %>
 <!DOCTYPE html>
 <html>
