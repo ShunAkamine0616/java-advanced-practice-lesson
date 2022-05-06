@@ -3,6 +3,7 @@
   <%@ page import="app.GameApp"%>
  --%>
 
+<%@ page import="app.GameApp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <%
@@ -10,10 +11,11 @@
     String name = request.getParameter("name");
 
     String result = "未実施";
-
+	GameApp g1 = new GameApp("何か");
     if (name != null && !name.isEmpty()) {
     	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、
     	// 戻り値をresultに代入してください。
+    	result = g1.start(name); 
     }
 %>
 <!DOCTYPE html>
