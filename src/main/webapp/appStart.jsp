@@ -54,9 +54,12 @@ body {
   
 
   <form action="StartAppServlet" method="post">
-    <label>ユーザ名：</label>
+    <label>名前：</label>
     <input type="text" name="name">
     <br>
+    アプリ：
+    <input type="radio" name="app" value="トランプ" checked="checked"> トランプ
+	<input type="radio" name="app" value="ゲーム"> ゲーム
     <button type="submit">実行</button>
   </form>
 </body>
