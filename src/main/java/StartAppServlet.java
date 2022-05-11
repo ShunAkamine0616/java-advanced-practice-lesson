@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.CardGameApp;
+import app.ClockApp;
+import app.DartsGameApp;
 import app.GameApp;
 /**
  * Servlet implementation class StartAppServlet
@@ -42,14 +44,30 @@ public class StartAppServlet extends HttpServlet {
 	    String name = request.getParameter("name"); 
 	    String app = request.getParameter("app"); 
 	    String result = "未実施"; 
+	    GameApp g;
+	    ClockApp c;
+	    
+	    if(app.equals("トランプ")) {
+	    	g = new CardGameApp(app); 
+	    	result = g.start(name);
+	    } else if(app.equals("ダーツ")) {
+	    	g = new DartsGameApp(app);
+	    	result = g.start(name) + g.play();
+	    } else if(app.equals("時計")) {
+	    	c = new ClockApp();
+	    	result = c.start(name);
+	    } else if(app.equals("その他")) {
+	    	result = "アプリの実行に失敗しました。";
+	    }
+	    
 	    
 //	    request.setAttribute("app", app); //　appをスコープに保存
-	    GameApp g1 = new CardGameApp(app); 
-	    if (name != null && !name.isEmpty()) {
-	     	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、 -->
-	     	// 戻り値をresultに代入してください。 -->
-	     	result = g1.start(name);  
-	    } 
+//	    GameApp g = new CardGameApp(app); 
+//	    if (name != null && !name.isEmpty()) {
+//	     	// このif分の中で、GameAppクラスのstartメソッドを呼び出し、 -->
+//	     	// 戻り値をresultに代入してください。 -->
+//	     	result = g.start(name);  
+//	    } 
 	    
 	    request.setAttribute("result", result);
 	    request.getRequestDispatcher("/appStart.jsp").forward(request, response);

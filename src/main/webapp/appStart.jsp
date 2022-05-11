@@ -59,7 +59,9 @@ body {
     <br>
     アプリ：
     <input type="radio" name="app" value="トランプ" checked="checked"> トランプ
-	<input type="radio" name="app" value="ゲーム"> ゲーム
+	<input type="radio" name="app" value="ダーツ"> ダーツ
+	<input type="radio" name="app" value="時計"> 時計
+	<input type="radio" name="app" value="その他"> その他<br>
     <button type="submit">実行</button>
   </form>
 </body>
