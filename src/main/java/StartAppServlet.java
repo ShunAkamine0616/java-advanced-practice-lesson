@@ -52,7 +52,7 @@ public class StartAppServlet extends HttpServlet {
 	    	result = g.start(name);
 	    } else if(app.equals("ダーツ")) {
 	    	g = new DartsGameApp(app);
-	    	result = g.start(name) + g.play();
+	    	result = g.start(name);
 	    } else if(app.equals("時計")) {
 	    	c = new ClockApp();
 	    	result = c.start(name);
