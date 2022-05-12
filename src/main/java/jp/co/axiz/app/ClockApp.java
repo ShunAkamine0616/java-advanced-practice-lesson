@@ -1,4 +1,4 @@
-package app;
+package jp.co.axiz.app;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

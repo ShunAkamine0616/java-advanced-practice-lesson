@@ -3,7 +3,7 @@
   <%@ page import="app.GameApp"%>
  --%>
 
-<%@ page import="app.GameApp"%> 
+<%@ page import="jp.co.axiz.app.GameApp"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -58,10 +58,10 @@ body {
     <input type="text" name="name">
     <br>
     アプリ：
-    <input type="radio" name="app" value="トランプ" checked="checked"> トランプ
-	<input type="radio" name="app" value="ダーツ"> ダーツ
-	<input type="radio" name="app" value="時計"> 時計
-	<input type="radio" name="app" value="その他"> その他<br>
+    <input type="radio" name="item" value="トランプ" checked="checked"> トランプ
+	<input type="radio" name="item" value="ダーツ"> ダーツ
+	<input type="radio" name="item" value="時計"> 時計
+	<input type="radio" name="item" value="その他"> その他<br>
     <button type="submit">実行</button>
   </form>
 </body>
