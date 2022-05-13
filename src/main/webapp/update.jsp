@@ -73,7 +73,10 @@ body {
         <th>現在速度</th>
       </tr>
 
-
+		<c:forEach var="car" items="${historyList}">
+		<td>${car.getBodyColor()}</td>
+		<td>${car.getMaxSpeed()}</td>
+		</c:forEach>
       <!-- c:forEachについて
            javaの拡張for文にあたるものである
            items属性に配列やコレクションを指定する
