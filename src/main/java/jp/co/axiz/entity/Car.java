@@ -10,10 +10,26 @@ public class Car {
 		
 	}
 	
-	public Car(String carName, String bodyColor, int maxSpeed) {
+	public Car(String carName, String bodyColor, int maxSpeed) throws Exception {
 		this.carName = carName;
 		this.bodyColor = bodyColor;
+		if(maxSpeed < 0) {
+			throw new Exception("最高速度に、この値(" + maxSpeed +")をセットすることはできません。");
+		}
 		this.maxSpeed = maxSpeed;
+	}
+	
+	public Car(String carName, String bodyColor, int maxSpeed, int speed) throws Exception {
+		this.carName = carName;
+		this.bodyColor = bodyColor;
+		if(maxSpeed < 0) {
+			throw new Exception("最高速度に、この値(" + maxSpeed +")をセットすることはできません。");
+		}
+		this.maxSpeed = maxSpeed;
+		if(speed < 0 || maxSpeed < speed ) {
+			throw new Exception("最高速度に、この値(" + speed +")をセットすることはできません。");
+		}
+		this.speed = speed;
 	}
 	
 	public String getCarName() {
@@ -45,13 +61,9 @@ public class Car {
 	}
 
 	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-
-	public Car(String carName, String bodyColor, int maxSpeed, int speed) {
-		this.carName = carName;
-		this.bodyColor = bodyColor;
-		this.maxSpeed = maxSpeed;
+//		if(speed < 0 || maxSpeed < speed) {
+//			throw new Exception("現在速度に、この値(" + speed +")をセットすることはできません。");
+//		}
 		this.speed = speed;
 	}
 }
